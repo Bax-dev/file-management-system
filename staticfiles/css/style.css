@@ -1,0 +1,118 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fb;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #0061f2;
+    box-shadow: 0 0 5px rgba(0, 97, 242, 0.3);
+}
+
+button[type="submit"] {
+    padding: 15px;
+    background-color: #0061f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #004bbd;
+}
+
+.social-login {
+    margin: 20px 0;
+}
+
+.social-login a {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 12px 0;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    background-color: #ea4335; /* Google Button */
+    transition: background-color 0.3s ease;
+}
+
+.social-login a.apple {
+    background-color: #000;
+}
+
+.social-login a:hover {
+    background-color: #c33;
+}
+
+.social-login a.apple:hover {
+    background-color: #333;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+p a {
+    color: #0061f2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyVault</title>
+
+    <link rel="icon" href="{% static 'image/icons8-cloud-ios-17-filled-16.png' %}" type="image/png" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-logo">SkyVault</div>
+        <div>
+            <a href="/">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'account_logout' %}" target="_blank" >Logout</a>
+            {% else %}
+                <a href="{% url 'account_login' %}" target="_blank" >Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome to SkyVault</h1>
+        <p>Your secure and reliable cloud storage solution. Easily store, access, and share your files from anywhere.</p>
+
+        {% if user.is_authenticated %}
+            <h2>Your Folders</h2>
+            <ul>
+                {% for folder in folders %}
+                <li>
+                    <a href="{% url 'view_folder' folder.id %}">{{ folder.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="{% url 'create_folder' %}" class="cta">Create New Folder</a>
+        {% else %}
+            <a href="{% url 'account_login' %}" class="cta">Login to Access Your Files</a>
+        {% endif %}
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <h3>Secure Storage</h3>
+                <p>Your files are protected with top-notch encryption and security protocols.</p>
+            </div>
+            <div class="feature">
+                <h3>Easy Sharing</h3>
+                <p>Share your files with anyone using just a link, and control access easily.</p>
+            </div>
+            <div class="feature">
+                <h3>Access Anywhere</h3>
+                <p>Access your files from any device, at any time, with our seamless platform.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 SkyVault. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">Contact Us</a>
+        </p>
+    </div>
+</body>
+</html>

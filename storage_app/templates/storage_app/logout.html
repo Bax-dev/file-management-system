@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logout - SkyFault</title>
+    <link rel="icon" href="{% static 'image/icons8-cloud-ios-17-filled-16.png' %}" type="image/png" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #470005;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      a{
+        color: #470005
+      }
+
+      .logout-container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .logout-container h1 {
+        margin-bottom: 1rem;
+        color: #470005;
+        font-size: 2rem;
+      }
+
+      .logout-container p {
+        margin-bottom: 1.5rem;
+        color: #470005;
+      }
+
+      .logout-container .logo {
+        margin-bottom: 1.5rem;
+      }
+
+      .logout-container .logo img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .logout-container .description {
+        font-size: 0.9rem;
+        color: #470005;
+        margin-bottom: 1.5rem;
+      }
+
+      .logout-container button {
+        background-color: #470005;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .logout-container button:hover {
+        background-color: #470005;
+      }
+
+      .logout-container a {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .logout-container a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!--next Parameter: The ?next={% url 'home' %} in the action attribute tells Django to redirect the user to the home page after they log out.-->
+    <<div class="logout-container">
+      <h1>Logout from SkyFault</h1>
+      <p>Are you sure you want to log out?</p>
+      <form method="post" action="{% url 'logout_view' %}?next={% url 'home' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+      <a href="{% url 'home' %}">Cancel</a>
+      <div class="description">
+        <p>SkyFault is your secure and reliable cloud-based storage solution. We ensure your files are safe and accessible anytime, anywhere. Thank you for trusting us.</p>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

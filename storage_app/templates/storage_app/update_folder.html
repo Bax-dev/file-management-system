@@ -1,0 +1,10 @@
+<h1>Update Folder: {{ folder.name }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="folder_name">New Folder Name:</label>
+    <input type="text" id="folder_name" name="folder_name" value="{{ folder.name }}">
+    <button type="submit">Update</button>
+</form>
+
+<a href="{% url 'view_folder' folder.id %}">Back to Folder</a>
