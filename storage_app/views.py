@@ -18,6 +18,7 @@ def create_folder(request):
     if request.method == 'POST':
         folder_name = request.POST.get('folder_name')
         if folder_name:
+            #This line creates a new Folder object in the database using Django's ORM (Object-Relational Mapping)
             folder = Folder.objects.create(name=folder_name, owner=request.user)
             return redirect('view_folder', folder_id=folder.id)
     return render(request, 'storage_app/create_folder.html')
